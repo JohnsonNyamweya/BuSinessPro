@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "10024043129",
+    "project_id": "businesspro-27a27",
+    "storage_bucket": "businesspro-27a27.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:10024043129:android:5c579a62be1bca79eecaa8",
+        "android_client_info": {
+          "package_name": "com.johnsonnyamweya.businesspro"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "10024043129-du8ne8nla6qj751vcfkgvs5idanmlqnf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBTSFJGNnPBFKFwAJ6zYFI6Qm9Y-MlzLj0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "10024043129-du8ne8nla6qj751vcfkgvs5idanmlqnf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

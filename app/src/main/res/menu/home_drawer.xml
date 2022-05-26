@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_supermarket"
+            android:title="Supermarket" />
+        <item
+        android:id="@+id/nav_phones_tablets"
+        android:title="Phones and Tablets" />
+
+        <item
+            android:id="@+id/nav_computing"
+            android:title="Computing"/>
+
+        <item
+            android:id="@+id/nav_electronics"
+            android:title="Electronics"/>
+
+        <item
+            android:id="@+id/nav_fashion"
+            android:title="Fashion"/>
+
+        <item
+            android:id="@+id/nav_gaming"
+            android:title="Gaming"/>
+
+        <item
+            android:id="@+id/nav_sporting_goods"
+            android:title="Sporting Goods"/>
+
+        <item
+            android:id="@+id/nav_garden_and_outdoors"
+            android:title="Garden and Outdoors"/>
+
+        <item
+            android:id="@+id/nav_home_and_beauty"
+            android:title="Home and Beauty"/>
+
+        <item
+            android:id="@+id/nav_health_and_beauty"
+            android:title="Healthy and Beauty"/>
+
+        <item
+            android:id="@+id/nav_baby_products"
+            android:title="Baby Products"/>
+
+        <item
+            android:id="@+id/nav_second_hand_goods"
+            android:title="Secondhand Goods"/>
+
+    </group>
+
+</menu>
