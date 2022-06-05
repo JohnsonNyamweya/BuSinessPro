@@ -1,22 +1,22 @@
 package com.johnsonnyamweya.businesspro.Admins;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.johnsonnyamweya.businesspro.Deliverer.DelivererRegistrationActivity;
 import com.johnsonnyamweya.businesspro.MainActivity;
 import com.johnsonnyamweya.businesspro.R;
 import com.johnsonnyamweya.businesspro.Sellers.SellerRegistrationActivity;
-import com.johnsonnyamweya.businesspro.Users.UserHomeActivity;
 
 public class AdminHomeActivity extends AppCompatActivity {
 
-    private Button logoutButton, checkOrdersButton, registerSeller, registerDeliverer, checkApproveProductsBtn;
+    private Button logoutButton, checkOrdersButton, registerSeller, registerDeliverer, checkApproveProductsBtn,
+    viewSellers, viewDeliverers;
     private FirebaseAuth mAuth;
 
     @Override
@@ -31,6 +31,8 @@ public class AdminHomeActivity extends AppCompatActivity {
         registerSeller = (Button) findViewById(R.id.admin_register_seller_btn);
         registerDeliverer = (Button) findViewById(R.id.admin_register_deliverer_btn);
         checkApproveProductsBtn = (Button) findViewById(R.id.admin_check_and_approve_orders_btn);
+        viewSellers = (Button) findViewById(R.id.admin_view_sellers_available);
+        viewDeliverers = (Button) findViewById(R.id.admin_view_deliverers_available);
 
         registerSeller.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,6 +79,21 @@ public class AdminHomeActivity extends AppCompatActivity {
             }
         });
 
+        viewSellers.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent viewSellersIntent = new Intent(AdminHomeActivity.this, SellersListActivity.class);
+                startActivity(viewSellersIntent);
+            }
+        });
+
+        viewDeliverers.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent viewDeliverersIntent = new Intent(AdminHomeActivity.this, DeliverersListActivity.class);
+                startActivity(viewDeliverersIntent);
+            }
+        });
 
     }
 }

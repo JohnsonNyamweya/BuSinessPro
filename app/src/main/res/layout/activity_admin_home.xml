@@ -37,7 +37,7 @@
         android:layout_below="@+id/admin_check_orders_btn"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:background="@color/purple_500"
         android:text="Check and Approve New Products"
         android:textColor="@color/white"
@@ -49,7 +49,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/admin_check_and_approve_orders_btn"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="5dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:background="@color/purple_500"
@@ -63,7 +63,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/admin_register_seller_btn"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="5dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:background="@color/purple_500"
@@ -72,6 +72,33 @@
         android:textSize="20dp"
         android:textAllCaps="false"/>
 
+    <Button
+        android:id="@+id/admin_view_sellers_available"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/admin_register_deliverer_btn"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@color/purple_500"
+        android:text="View Sellers"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:textAllCaps="false"/>
+
+    <Button
+        android:id="@+id/admin_view_deliverers_available"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/admin_view_sellers_available"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@color/purple_500"
+        android:text="View Deliverers"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:textAllCaps="false"/>
 
     <Button
         android:id="@+id/admin_logout_btn"
