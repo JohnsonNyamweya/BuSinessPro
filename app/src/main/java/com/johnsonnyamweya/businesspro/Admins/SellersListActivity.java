@@ -108,5 +108,8 @@ public class SellersListActivity extends AppCompatActivity {
             }
         };
 
+        sellersRv.setAdapter(adapter);
+        adapter.startListening();
+
     }
 }
