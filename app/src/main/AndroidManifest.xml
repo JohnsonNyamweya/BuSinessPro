@@ -14,6 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BuSinessPro">
         <activity
+            android:name=".Deliverer.DelivererAccountActivity"
+            android:exported="false" />
+        <activity
             android:name=".Admins.AdminUserOrderProductsActivity"
             android:exported="false" />
         <activity
@@ -34,10 +37,6 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyDl9RFjen7ixs0sHgEPtKnUbrrSsAqR0as" />
 
-        <activity
-            android:name=".Deliverer.DelivererMapActivity"
-            android:exported="false"
-            android:label="@string/title_activity_deliverer_map" />
         <activity
             android:name=".Deliverer.DelivererRegistrationActivity"
             android:exported="false" />

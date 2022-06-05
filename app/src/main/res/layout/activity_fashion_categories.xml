@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Categories.FashionCategoriesActivity"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/txt_add_new_products"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ADD NEW FASHION PRODUCT"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:textColor="@color/yellow"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_margin="10dp"
+        android:weightSum="2"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/women_fashion"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:text="Women's Fashion"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/teal_200"/>
+
+        <TextView
+            android:id="@+id/men_fashion"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:text="Men's Fashion"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/teal_200"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_margin="10dp"
+        android:weightSum="2"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/baby"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:text="Baby"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/teal_200"/>
+
+        <TextView
+            android:id="@+id/kids_fashion"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:text="Kids' Fashion"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/teal_200"/>
+
+    </LinearLayout>
+
+
+</LinearLayout>

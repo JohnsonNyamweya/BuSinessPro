@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Sellers.SellerProductsCategoryActivity"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/txt_add_new_products"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="CHOOSE PRODUCT CATEGORY"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@color/yellow"
+        android:gravity="center"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_margin="10dp"
+        android:weightSum="3"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/supermarkets"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:text="Supermarkets"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/teal_200"/>
+
+        <TextView
+            android:id="@+id/phones_tablets"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:text="Phones/Tablets"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/teal_200"/>
+
+        <TextView
+            android:id="@+id/computing"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:text="Computing"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/teal_200"/>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_margin="10dp"
+        android:weightSum="3"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/electronics"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:text="Electronics"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/teal_200"/>
+
+        <TextView
+            android:id="@+id/fashion"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:text="Fashion"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/teal_200"/>
+
+        <TextView
+            android:id="@+id/gaming"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:text="Gaming"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/teal_200"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_margin="10dp"
+        android:weightSum="3"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/sporting_goods"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:text="Sporting Goods"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/teal_200"/>
+
+        <TextView
+            android:id="@+id/garden_outdoors"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:text="Garden Outdoors"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/teal_200"/>
+
+        <TextView
+            android:id="@+id/home_beauty"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:text="Home and Beauty"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/teal_200"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_margin="10dp"
+        android:weightSum="3"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/healthy_beauty"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:text="Health and Beauty"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/teal_200"/>
+
+        <TextView
+            android:id="@+id/baby_products"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:text="Baby Products"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/teal_200" />
+
+        <TextView
+            android:id="@+id/second_hand_goods"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:text="Secondhand Goods"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/teal_200" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

@@ -1,8 +1,5 @@
 package com.johnsonnyamweya.businesspro.Deliverer;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,15 +10,15 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.johnsonnyamweya.businesspro.ForgotPasswordActivity;
 import com.johnsonnyamweya.businesspro.R;
-import com.johnsonnyamweya.businesspro.Sellers.SellerHomeActivity;
-import com.johnsonnyamweya.businesspro.Sellers.SellerLoginActivity;
-import com.johnsonnyamweya.businesspro.Sellers.SellerRegistrationActivity;
 
 public class DelivererLoginActivity extends AppCompatActivity {
 
@@ -65,7 +62,7 @@ public class DelivererLoginActivity extends AppCompatActivity {
         final String email = edtDelivererLoginEmail.getText().toString();
         final String password = edtDelivererLoginPassword.getText().toString();
 
-        loadingBar.setTitle("Seller Account login");
+        loadingBar.setTitle("Deliverer Account login");
         loadingBar.setMessage("Please wait, while we are checking credentials");
         loadingBar.setCanceledOnTouchOutside(false);
         loadingBar.show();
@@ -90,8 +87,8 @@ public class DelivererLoginActivity extends AppCompatActivity {
                                 loadingBar.dismiss();
 
                                 Toast.makeText(DelivererLoginActivity.this,
-                                        "Seller logged in Successfully", Toast.LENGTH_SHORT).show();
-                                Intent intent = new Intent(DelivererLoginActivity.this, DelivererMapActivity.class);
+                                        "You logged in Successfully", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(DelivererLoginActivity.this, DelivererAccountActivity.class);
                                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                 startActivity(intent);
                                 finish();

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Categories.HealthAndBeautyCategoriesActivity"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/txt_add_new_products"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ADD NEW HEALTH AND BEAUTY PRODUCT"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:textColor="@color/yellow"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_margin="10dp"
+        android:weightSum="2"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/hair_care"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:text="Hare Care"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/teal_200"/>
+
+        <TextView
+            android:id="@+id/personal_care"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:text="Personal Care"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/teal_200"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_margin="10dp"
+        android:weightSum="2"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/fragrances"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:text="Fragrances"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/teal_200"/>
+
+        <TextView
+            android:id="@+id/makeUp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:text="Makeup"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/teal_200"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_margin="10dp"
+        android:weightSum="2"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/men_grooming"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:text="Men's Grooming"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/teal_200"/>
+
+        <TextView
+            android:id="@+id/oral_care"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:text="Oral Care"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/teal_200"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_margin="10dp"
+        android:weightSum="2"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/health_care"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:text="Health Care"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/teal_200"/>
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

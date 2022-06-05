@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Admins.AdminLoginRegisterActivity">
+
+    <TextView
+        android:id="@+id/txt_welcome_slogan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Welcome To BusinessPro, All Time Trusted E-commerce Site..."
+        android:textSize="35sp"
+        android:textStyle="bold|italic"
+        android:layout_margin="10dp"
+        android:gravity="center"
+        android:textColor="@color/yellow"/>
+
+    <TextView
+        android:id="@+id/txt_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_welcome_slogan"
+        android:text="LOGIN"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_margin="20dp"
+        android:textColor="@color/teal_200"/>
+
+    <EditText
+        android:id="@+id/edt_email"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@+id/txt_login"
+        android:inputType="textEmailAddress"
+        android:hint="Email"
+        android:padding="6dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/input_fields"/>
+
+    <EditText
+        android:id="@+id/edt_password"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@+id/edt_email"
+        android:inputType="textPassword"
+        android:hint="Password"
+        android:padding="6dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/input_fields"/>
+
+    <TextView
+        android:id="@+id/txt_do_not_have_account"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edt_password"
+        android:text="Don't have an Account"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:gravity="end"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp"
+        android:textColor="@color/teal_200"/>
+
+    <TextView
+        android:id="@+id/have_account"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_do_not_have_account"
+        android:text="Have Account"
+        android:visibility="gone"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:gravity="end"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp"
+        android:textColor="@color/teal_200"/>
+
+    <TextView
+        android:id="@+id/forgot_password_link"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/have_account"
+        android:text="Forgot Password"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:gravity="end"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp"
+        android:textColor="@color/teal_200"/>
+
+    <Button
+        android:id="@+id/btn_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/forgot_password_link"
+        android:text="Login"
+        android:textColor="@color/white"
+        android:layout_margin="10dp"
+        android:background="@drawable/button_fields"/>
+
+    <Button
+        android:id="@+id/btn_register"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btn_login"
+        android:text="Register"
+        android:textColor="@color/white"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/button_fields"
+        android:visibility="gone"/>
+
+</RelativeLayout>
