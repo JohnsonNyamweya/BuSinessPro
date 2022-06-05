@@ -4,59 +4,54 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <EditText
+    <TextView
         android:id="@+id/deliverer_details_list_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:inputType="textMultiLine"
-        android:hint="Name"
+        android:text="Name"
         android:padding="6dp"/>
 
-    <EditText
+    <TextView
         android:id="@+id/deliverer_details_list_phone_number"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:inputType="number"
-        android:hint="Phone Number"
+        android:text="Phone Number"
         android:padding="6dp"/>
 
-    <EditText
+    <TextView
         android:id="@+id/deliverer_details_list_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:inputType="textEmailAddress"
-        android:hint="Email Address"
+        android:text="Email Address"
         android:padding="6dp"/>
 
-    <EditText
-        android:id="@+id/deliverer_details_address"
+    <TextView
+        android:id="@+id/deliverer_list_details_address"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:inputType="textMultiLine"
-        android:hint="Address"
+        android:text="Address"
         android:padding="6dp"/>
 
-    <EditText
-        android:id="@+id/deliverer_details_car_bike_name"
+    <TextView
+        android:id="@+id/deliverer_list_details_car_bike_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:inputType="textMultiLine"
-        android:hint="Car/Bike Name"
+        android:text="Car/Bike Name"
         android:padding="6dp"/>
 
 </LinearLayout>
