@@ -14,10 +14,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BuSinessPro">
         <activity
-            android:name=".DeliverersListActivity"
+            android:name=".Admins.SellersListActivity"
             android:exported="false" />
         <activity
-            android:name=".SellersListActivity"
+            android:name=".Admins.DeliverersListActivity"
             android:exported="false" />
         <activity
             android:name=".Deliverer.DelivererAccountActivity"
