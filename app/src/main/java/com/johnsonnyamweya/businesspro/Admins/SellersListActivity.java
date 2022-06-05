@@ -28,6 +28,7 @@ import com.johnsonnyamweya.businesspro.R;
 public class SellersListActivity extends AppCompatActivity {
 
     private RecyclerView sellersRv;
+    RecyclerView.LayoutManager layoutManager;
     DatabaseReference sellersListRef;
 
     @Override
@@ -38,7 +39,10 @@ public class SellersListActivity extends AppCompatActivity {
         sellersListRef = FirebaseDatabase.getInstance().getReference();
 
         sellersRv = (RecyclerView) findViewById(R.id.sellers_list_rv);
-        sellersRv.setLayoutManager(new LinearLayoutManager(this));
+        layoutManager = new LinearLayoutManager(this);
+        sellersRv.setHasFixedSize(true);
+        sellersRv.setLayoutManager(layoutManager);
+
 
     }
 
