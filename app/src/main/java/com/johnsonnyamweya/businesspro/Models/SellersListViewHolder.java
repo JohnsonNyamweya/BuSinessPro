@@ -13,7 +13,7 @@ public class SellersListViewHolder extends RecyclerView.ViewHolder implements Vi
 
     private ItemClickListener listener;
 
-    private TextView sellerListName, sellerListPhone, sellerListAddress, sellerListEmail;
+    public TextView sellerListName, sellerListPhone, sellerListAddress, sellerListEmail;
 
     public SellersListViewHolder(@NonNull View itemView) {
         super(itemView);

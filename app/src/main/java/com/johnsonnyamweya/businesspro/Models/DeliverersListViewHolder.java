@@ -13,7 +13,7 @@ public class DeliverersListViewHolder extends RecyclerView.ViewHolder implements
 
     private ItemClickListener listener;
 
-    private TextView name, phoneNumber, email, address, carBikeName;
+    public TextView name, phoneNumber, email, address, carBikeName;
 
     public DeliverersListViewHolder(@NonNull View itemView) {
         super(itemView);
