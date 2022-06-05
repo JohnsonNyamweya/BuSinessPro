@@ -85,7 +85,7 @@
         android:layout_marginRight="15dp"
         android:layout_marginTop="5dp"
         android:layout_below="@+id/deliverer_address"
-        android:hint="Motorbike name and numberplate"
+        android:hint="Motorbike/Car name and numberplate"
         android:inputType="text"
         android:textSize="16dp" />
 
