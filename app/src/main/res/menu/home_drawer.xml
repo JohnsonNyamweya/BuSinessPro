@@ -7,50 +7,50 @@
 
         <item
             android:id="@+id/nav_supermarket"
-            android:title="Supermarket" />
+            android:title="@string/supermarket_category" />
         <item
         android:id="@+id/nav_phones_tablets"
-        android:title="Phones and Tablets" />
+        android:title="@string/phones_and_tablets_category" />
 
         <item
             android:id="@+id/nav_computing"
-            android:title="Computing"/>
+            android:title="@string/computing_category"/>
 
         <item
             android:id="@+id/nav_electronics"
-            android:title="Electronics"/>
+            android:title="@string/electronics_category"/>
 
         <item
             android:id="@+id/nav_fashion"
-            android:title="Fashion"/>
+            android:title="@string/fashion_category"/>
 
         <item
             android:id="@+id/nav_gaming"
-            android:title="Gaming"/>
+            android:title="@string/gaming_category"/>
 
         <item
             android:id="@+id/nav_sporting_goods"
-            android:title="Sporting Goods"/>
+            android:title="@string/sporting_goods_category"/>
 
         <item
             android:id="@+id/nav_garden_and_outdoors"
-            android:title="Garden and Outdoors"/>
+            android:title="@string/garden_and_outdoors_category"/>
 
         <item
             android:id="@+id/nav_home_and_beauty"
-            android:title="Home and Beauty"/>
+            android:title="@string/home_and_beauty_category"/>
 
         <item
             android:id="@+id/nav_health_and_beauty"
-            android:title="Healthy and Beauty"/>
+            android:title="@string/healthy_and_beauty_category"/>
 
         <item
             android:id="@+id/nav_baby_products"
-            android:title="Baby Products"/>
+            android:title="@string/baby_products_category"/>
 
         <item
             android:id="@+id/nav_second_hand_goods"
-            android:title="Secondhand Goods"/>
+            android:title="@string/secondhand_goods_category"/>
 
     </group>
 

@@ -23,14 +23,13 @@ public class AdminUserOrderProductsActivity extends AppCompatActivity {
     private RecyclerView productsList;
     RecyclerView.LayoutManager layoutManager;
     private DatabaseReference cartListRef;
-    private String userID = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_user_order_products);
 
-        userID = getIntent().getStringExtra("uid");
+        String userID = getIntent().getStringExtra("uid");
 
         productsList = findViewById(R.id.products_list_rv);
         productsList.setHasFixedSize(true);

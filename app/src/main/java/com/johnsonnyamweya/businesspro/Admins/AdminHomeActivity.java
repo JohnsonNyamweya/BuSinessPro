@@ -2,7 +2,6 @@ package com.johnsonnyamweya.businesspro.Admins;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,8 +14,6 @@ import com.johnsonnyamweya.businesspro.Sellers.SellerRegistrationActivity;
 
 public class AdminHomeActivity extends AppCompatActivity {
 
-    private Button logoutButton, checkOrdersButton, registerSeller, registerDeliverer, checkApproveProductsBtn,
-    viewSellers, viewDeliverers;
     private FirebaseAuth mAuth;
 
     @Override
@@ -26,74 +23,54 @@ public class AdminHomeActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
 
-        logoutButton = (Button) findViewById(R.id.admin_logout_btn);
-        checkOrdersButton = (Button) findViewById(R.id.admin_check_orders_btn);
-        registerSeller = (Button) findViewById(R.id.admin_register_seller_btn);
-        registerDeliverer = (Button) findViewById(R.id.admin_register_deliverer_btn);
-        checkApproveProductsBtn = (Button) findViewById(R.id.admin_check_and_approve_orders_btn);
-        viewSellers = (Button) findViewById(R.id.admin_view_sellers_available);
-        viewDeliverers = (Button) findViewById(R.id.admin_view_deliverers_available);
+        Button logoutButton = findViewById(R.id.admin_logout_btn);
+        Button checkOrdersButton = findViewById(R.id.admin_check_orders_btn);
+        Button registerSeller = findViewById(R.id.admin_register_seller_btn);
+        Button registerDeliverer = findViewById(R.id.admin_register_deliverer_btn);
+        Button checkApproveProductsBtn = findViewById(R.id.admin_check_and_approve_orders_btn);
+//        Button viewSellersButton = findViewById(R.id.admin_view_sellers_btn);
+//        Button viewDeliverersButton = findViewById(R.id.admin_view_deliverers_btn);
 
-        registerSeller.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(AdminHomeActivity.this, SellerRegistrationActivity.class);
-                startActivity(intent);
-            }
+        registerSeller.setOnClickListener(view -> {
+            Intent intent = new Intent(AdminHomeActivity.this, SellerRegistrationActivity.class);
+            startActivity(intent);
         });
 
-        registerDeliverer.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(AdminHomeActivity.this, DelivererRegistrationActivity.class);
-                startActivity(intent);
-            }
+        registerDeliverer.setOnClickListener(view -> {
+            Intent intent = new Intent(AdminHomeActivity.this, DelivererRegistrationActivity.class);
+            startActivity(intent);
         });
 
-        logoutButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mAuth.signOut();
+        logoutButton.setOnClickListener(view -> {
+            mAuth.signOut();
 
-                Intent intent = new Intent(AdminHomeActivity.this, MainActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                startActivity(intent);
-                finish();
-            }
+            Intent intent = new Intent(AdminHomeActivity.this, MainActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+            finish();
         });
 
-        checkOrdersButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(AdminHomeActivity.this, AdminCheckNewOrdersActivity.class);
-                startActivity(intent);
+        checkOrdersButton.setOnClickListener(view -> {
+            Intent intent = new Intent(AdminHomeActivity.this, AdminCheckNewOrdersActivity.class);
+            startActivity(intent);
 
-            }
         });
 
-        checkApproveProductsBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+//        viewSellersButton.setOnClickListener(view -> {
+//            Intent sellersListIntent = new Intent(AdminHomeActivity.this, SellersListActivity.class);
+//            startActivity(sellersListIntent);
+//        });
+//
+//        viewDeliverersButton.setOnClickListener(view -> {
+//            Intent deliverersListIntent = new Intent(AdminHomeActivity.this, DeliverersListActivity.class);
+//            startActivity(deliverersListIntent);
+//        });
+
+        checkApproveProductsBtn.setOnClickListener(view -> {
                 Intent intent = new Intent(AdminHomeActivity.this, AdminCheckNewProductsActivity.class);
                 startActivity(intent);
-            }
         });
 
-        viewSellers.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent viewSellersIntent = new Intent(AdminHomeActivity.this, SellersListActivity.class);
-                startActivity(viewSellersIntent);
-            }
-        });
-
-        viewDeliverers.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent viewDeliverersIntent = new Intent(AdminHomeActivity.this, DeliverersListActivity.class);
-                startActivity(viewDeliverersIntent);
-            }
-        });
 
     }
 }

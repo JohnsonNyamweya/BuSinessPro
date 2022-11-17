@@ -14,14 +14,15 @@
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
         android:src="@drawable/cart"
-        android:background="@color/teal_200" />
+        android:background="@color/teal_200"
+        android:contentDescription="@string/main_logo_description"/>
 
     <TextView
         android:id="@+id/txt_welcome"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/app_logo"
-        android:text="BusinessPro, All Time Trusted E-commerce Site..."
+        android:text="@string/motto"
         android:textSize="35sp"
         android:textStyle="bold|italic"
         android:gravity="center"
@@ -66,16 +67,16 @@
         android:layout_margin="10dp"
         android:textColor="@color/teal_200"/>
 
-    <TextView
-        android:id="@+id/deliverer_link"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/user_link"
-        android:text="Deliverer"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:gravity="center"
-        android:layout_margin="10dp"
-        android:textColor="@color/teal_200"/>
+<!--    <TextView-->
+<!--        android:id="@+id/deliverer_link"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_below="@+id/user_link"-->
+<!--        android:text="Deliverer"-->
+<!--        android:textSize="24sp"-->
+<!--        android:textStyle="bold"-->
+<!--        android:gravity="center"-->
+<!--        android:layout_margin="10dp"-->
+<!--        android:textColor="@color/teal_200"/>-->
 
 </RelativeLayout>

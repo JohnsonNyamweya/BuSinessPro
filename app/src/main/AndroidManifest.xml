@@ -14,34 +14,20 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BuSinessPro">
         <activity
+            android:name=".Admins.AdminUserOrderProductsActivity"
+            android:exported="false" />
+
+        <activity
             android:name=".Admins.SellersListActivity"
             android:exported="false" />
+
         <activity
             android:name=".Admins.DeliverersListActivity"
             android:exported="false" />
-        <activity
-            android:name=".Deliverer.DelivererAccountActivity"
-            android:exported="false" />
-        <activity
-            android:name=".Admins.AdminUserOrderProductsActivity"
-            android:exported="false" />
+
         <activity
             android:name=".Sellers.MaintainProductsActivity"
             android:exported="false" />
-        <!--
-             TODO: Before you run your application, you need a Google Maps API key.
-
-             To get one, follow the directions here:
-
-                https://developers.google.com/maps/documentation/android-sdk/get-api-key
-
-             Once you have your API key (it starts with "AIza"), define a new property in your
-             project's local.properties file (e.g. MAPS_API_KEY=Aiza...), and replace the
-             "YOUR_API_KEY" string in this file with "${MAPS_API_KEY}".
-        -->
-        <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyDl9RFjen7ixs0sHgEPtKnUbrrSsAqR0as" />
 
         <activity
             android:name=".Deliverer.DelivererRegistrationActivity"
@@ -114,6 +100,42 @@
             android:exported="false" />
         <activity
             android:name=".Categories.SupermarketCategoriesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CategoriesUnderUser.CategoryOfElectronicsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CategoriesUnderUser.CategoryOfBabyProductsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CategoriesUnderUser.CategoryOfComputingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CategoriesUnderUser.CategoryOfFashionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CategoriesUnderUser.CategoryOfGamingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CategoriesUnderUser.CategoryOfGardenAndOutdoorsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CategoriesUnderUser.CategoryOfHealthAndBeautyActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CategoriesUnderUser.CategoryOfHomeAndBeautyActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CategoriesUnderUser.CategoryOfPhonesAndTabletsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CategoriesUnderUser.CategoryOfSecondhandGoodsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CategoriesUnderUser.CategoryOfSportingGoodsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CategoriesUnderUser.CategoryOfSupermarketActivity"
             android:exported="false" />
         <activity
             android:name=".Sellers.SellerProductsCategoryActivity"

@@ -1,7 +1,6 @@
 package com.johnsonnyamweya.businesspro.Admins;
 
 import android.annotation.SuppressLint;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -74,37 +73,31 @@ public class AdminCheckNewOrdersActivity extends AppCompatActivity {
                             }
                         });
 
-                        holder.itemView.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                CharSequence options[] = new CharSequence[]{
+                        holder.itemView.setOnClickListener(view -> {
+                            CharSequence options1[] = new CharSequence[]{
 
-                                        "Yes",
-                                        "No"
+                                    "Yes",
+                                    "No"
 
-                                };
+                            };
 
-                                AlertDialog.Builder builder = new AlertDialog.Builder(AdminCheckNewOrdersActivity.this);
-                                builder.setTitle("Have you shipped this order products?");
-                                builder.setItems(options, new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialogInterface, int position) {
+                            AlertDialog.Builder builder = new AlertDialog.Builder(AdminCheckNewOrdersActivity.this);
+                            builder.setTitle("Do You want to ship this order?");
+                            builder.setItems(options1, (dialogInterface, position1) -> {
 
-                                        if (position == 0){
-                                            String uID = getRef(position).getKey();
+                                if (position1 == 0){
+                                    String uID = getRef(position1).getKey();
 
-                                            removeOrder(uID);
-                                        }
-                                        else {
-                                            finish();
-                                        }
+                                    removeOrder(uID);
+                                }
+                                else {
+                                    finish();
+                                }
 
-                                    }
-                                });
+                            });
 
-                                builder.show();
+                            builder.show();
 
-                            }
                         });
 
                     }
@@ -133,7 +126,11 @@ public class AdminCheckNewOrdersActivity extends AppCompatActivity {
 
     public static final class AdminOrdersViewHolder extends RecyclerView.ViewHolder {
 
-        private TextView userName, userPhoneNumber, userTotalPrice, userDateTime, userShippingAddress;
+        private final TextView userName;
+        private final TextView userPhoneNumber;
+        private final TextView userTotalPrice;
+        private final TextView userDateTime;
+        private final TextView userShippingAddress;
         public Button showOrdersBtn;
 
         public AdminOrdersViewHolder(@NonNull View itemView) {

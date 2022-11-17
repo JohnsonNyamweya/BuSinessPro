@@ -4,27 +4,22 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.johnsonnyamweya.businesspro.R;
 
 import java.util.HashMap;
+import java.util.Objects;
 
 public class SellerRegistrationActivity extends AppCompatActivity {
 
-    private Button sellerRegisterBtn;
     private EditText sellerName, sellerPhone, sellerEmail, sellerPassword, sellerAddress;
     private FirebaseAuth mAuth;
     private ProgressDialog loadingBar;
@@ -37,22 +32,17 @@ public class SellerRegistrationActivity extends AppCompatActivity {
 
         loadingBar = new ProgressDialog(this);
 
-        sellerRegisterBtn = (Button) findViewById(R.id.seller_register_btn);
-        sellerName = (EditText) findViewById(R.id.seller_name);
-        sellerPhone = (EditText) findViewById(R.id.seller_phone);
-        sellerEmail = (EditText) findViewById(R.id.seller_email);
-        sellerPassword = (EditText) findViewById(R.id.seller_password);
-        sellerAddress = (EditText) findViewById(R.id.seller_address);
+        Button sellerRegisterBtn = findViewById(R.id.seller_register_btn);
+        sellerName = findViewById(R.id.seller_name);
+        sellerPhone = findViewById(R.id.seller_phone);
+        sellerEmail = findViewById(R.id.seller_email);
+        sellerPassword = findViewById(R.id.seller_password);
+        sellerAddress = findViewById(R.id.seller_address);
 
         mAuth = FirebaseAuth.getInstance();
 
 
-        sellerRegisterBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                registerSeller();
-            }
-        });
+        sellerRegisterBtn.setOnClickListener(view -> registerSeller());
     }
 
     private void registerSeller() {
@@ -72,51 +62,44 @@ public class SellerRegistrationActivity extends AppCompatActivity {
 
 
             mAuth.createUserWithEmailAndPassword(email, password)
-                    .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            if (task.isSuccessful()) {
-                                final DatabaseReference rootRef;
+                    .addOnCompleteListener(task -> {
+                        if (task.isSuccessful()) {
+                            final DatabaseReference rootRef;
 
-                                rootRef = FirebaseDatabase.getInstance().getReference();
+                            rootRef = FirebaseDatabase.getInstance().getReference();
 
-                                String sid = mAuth.getCurrentUser().getUid();
+                            String sid = Objects.requireNonNull(mAuth.getCurrentUser()).getUid();
 
-                                HashMap<String, Object> sellerMap = new HashMap<>();
+                            HashMap<String, Object> sellerMap = new HashMap<>();
 
-                                sellerMap.put("sid", sid);
-                                sellerMap.put("email", email);
-                                sellerMap.put("phone", phone);
-                                sellerMap.put("address", address);
-                                sellerMap.put("name", name);
+                            sellerMap.put("sid", sid);
+                            sellerMap.put("email", email);
+                            sellerMap.put("phone", phone);
+                            sellerMap.put("address", address);
+                            sellerMap.put("name", name);
 
 
-                                rootRef.child("Sellers").child(sid).updateChildren(sellerMap)
-                                        .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                            @Override
-                                            public void onComplete(@NonNull Task<Void> task) {
-                                                if (task.isSuccessful()) {
+                            rootRef.child("Sellers").child(sid).updateChildren(sellerMap)
+                                    .addOnCompleteListener(task1 -> {
+                                        if (task1.isSuccessful()) {
 
-                                                    loadingBar.dismiss();
+                                            loadingBar.dismiss();
 
-                                                    Toast.makeText(SellerRegistrationActivity.this,
-                                                            "You are registered successfully", Toast.LENGTH_SHORT).show();
+                                            Toast.makeText(SellerRegistrationActivity.this,
+                                                    "You are registered successfully", Toast.LENGTH_SHORT).show();
 
-                                                    Intent intent = new Intent(SellerRegistrationActivity.this
-                                                            , SellerLoginActivity.class);
-                                                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                                                    startActivity(intent);
-                                                    finish();
-                                                } else {
-                                                    Toast.makeText(SellerRegistrationActivity.this,
-                                                            "Registration Error " + task.getException().getMessage()
-                                                            , Toast.LENGTH_SHORT).show();
+                                            Intent intent = new Intent(SellerRegistrationActivity.this
+                                                    , SellerLoginActivity.class);
+                                            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                            startActivity(intent);
+                                            finish();
+                                        } else {
+                                            Toast.makeText(SellerRegistrationActivity.this,
+                                                    "Registration Error " + Objects.requireNonNull(task1.getException()).getMessage()
+                                                    , Toast.LENGTH_SHORT).show();
 
-                                                }
-                                            }
-
-                                        });
-                            }
+                                        }
+                                    });
                         }
                     });
         } else {

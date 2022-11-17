@@ -1,14 +1,14 @@
-package com.johnsonnyamweya.businesspro.Categories;
-
-import androidx.appcompat.app.AppCompatActivity;
+package com.johnsonnyamweya.businesspro.SellerAddCategories;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-import com.johnsonnyamweya.businesspro.Sellers.SellerAddNewProductActivity;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.johnsonnyamweya.businesspro.R;
+import com.johnsonnyamweya.businesspro.Sellers.SellerAddNewProductActivity;
 
 public class HomeAndBeautyCategoriesActivity extends AppCompatActivity {
 
@@ -27,7 +27,7 @@ public class HomeAndBeautyCategoriesActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(HomeAndBeautyCategoriesActivity.this,
                         SellerAddNewProductActivity.class);
-                intent.putExtra("category", "Home and Kitchen");
+                intent.putExtra("category", "Home and Beauty");
                 startActivity(intent);
             }
         });
@@ -37,7 +37,7 @@ public class HomeAndBeautyCategoriesActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(HomeAndBeautyCategoriesActivity.this,
                         SellerAddNewProductActivity.class);
-                intent.putExtra("category", "Small Appliances");
+                intent.putExtra("category", "Home and Beauty");
                 startActivity(intent);
             }
         });
@@ -47,7 +47,7 @@ public class HomeAndBeautyCategoriesActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(HomeAndBeautyCategoriesActivity.this,
                         SellerAddNewProductActivity.class);
-                intent.putExtra("category", "Cooking Appliances");
+                intent.putExtra("category", "Home and Beauty");
                 startActivity(intent);
             }
         });
@@ -57,7 +57,7 @@ public class HomeAndBeautyCategoriesActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(HomeAndBeautyCategoriesActivity.this,
                         SellerAddNewProductActivity.class);
-                intent.putExtra("category", "Office Products");
+                intent.putExtra("category", "Home and Beauty");
                 startActivity(intent);
             }
         });

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -10,9 +9,9 @@
         android:id="@+id/admin_welcome"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Welcome Dear Admin"
+        android:text="@string/welcome_dear_admin"
         android:gravity="center"
-        android:textSize="18dp"
+        android:textSize="18sp"
         android:textStyle="bold"
         android:textColor="@color/purple_500"
         android:layout_marginTop="10dp"/>
@@ -26,9 +25,9 @@
         android:layout_marginRight="20dp"
         android:layout_marginTop="10dp"
         android:background="@color/purple_500"
-        android:text="Check New Orders"
+        android:text="@string/check_new_orders_button"
         android:textColor="@color/white"
-        android:textSize="20dp"
+        android:textSize="20sp"
         android:textAllCaps="false"/>
     <Button
         android:id="@+id/admin_check_and_approve_orders_btn"
@@ -37,11 +36,11 @@
         android:layout_below="@+id/admin_check_orders_btn"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="10dp"
         android:background="@color/purple_500"
-        android:text="Check and Approve New Products"
+        android:text="@string/check_and_approve_new_products_button"
         android:textColor="@color/white"
-        android:textSize="18dp"
+        android:textSize="18sp"
         android:textAllCaps="false"/>
 
     <Button
@@ -49,13 +48,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/admin_check_and_approve_orders_btn"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:background="@color/purple_500"
-        android:text="Register Seller"
+        android:text="@string/register_seller_button"
         android:textColor="@color/white"
-        android:textSize="20dp"
+        android:textSize="20sp"
         android:textAllCaps="false"/>
 
     <Button
@@ -63,42 +62,42 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/admin_register_seller_btn"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:background="@color/purple_500"
-        android:text="Register Deliverer"
+        android:text="@string/register_deliverer_button"
         android:textColor="@color/white"
-        android:textSize="20dp"
+        android:textSize="20sp"
         android:textAllCaps="false"/>
 
-    <Button
-        android:id="@+id/admin_view_sellers_available"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/admin_register_deliverer_btn"
-        android:layout_marginTop="5dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:background="@color/purple_500"
-        android:text="View Sellers"
-        android:textColor="@color/white"
-        android:textSize="20dp"
-        android:textAllCaps="false"/>
+<!--    <Button-->
+<!--        android:id="@+id/admin_view_sellers_btn"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_below="@+id/admin_register_deliverer_btn"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        android:layout_marginLeft="20dp"-->
+<!--        android:layout_marginRight="20dp"-->
+<!--        android:background="@color/purple_500"-->
+<!--        android:text="@string/view_sellers_button"-->
+<!--        android:textColor="@color/white"-->
+<!--        android:textSize="20sp"-->
+<!--        android:textAllCaps="false"/>-->
 
-    <Button
-        android:id="@+id/admin_view_deliverers_available"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/admin_view_sellers_available"
-        android:layout_marginTop="5dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:background="@color/purple_500"
-        android:text="View Deliverers"
-        android:textColor="@color/white"
-        android:textSize="20dp"
-        android:textAllCaps="false"/>
+<!--    <Button-->
+<!--        android:id="@+id/admin_view_deliverers_btn"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_below="@+id/admin_view_sellers_btn"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        android:layout_marginLeft="20dp"-->
+<!--        android:layout_marginRight="20dp"-->
+<!--        android:background="@color/purple_500"-->
+<!--        android:text="@string/view_deliverers_button"-->
+<!--        android:textColor="@color/white"-->
+<!--        android:textSize="20sp"-->
+<!--        android:textAllCaps="false"/>-->
 
     <Button
         android:id="@+id/admin_logout_btn"
@@ -110,9 +109,9 @@
         android:layout_marginTop="10dp"
         android:layout_marginBottom="15dp"
         android:background="@color/purple_500"
-        android:text="Logout"
+        android:text="@string/logout_button"
         android:textColor="@color/white"
-        android:textSize="20dp"
+        android:textSize="20sp"
         android:textAllCaps="false"/>
 
 </RelativeLayout>

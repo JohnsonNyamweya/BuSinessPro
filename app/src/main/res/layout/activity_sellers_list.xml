@@ -1,18 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Admins.SellersListActivity"
-    app:cardElevation="6dp"
-    app:cardCornerRadius="6dp">
+    tools:context=".Admins.SellersListActivity">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/sellers_list_rv"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
 </androidx.recyclerview.widget.RecyclerView>
 
-</androidx.cardview.widget.CardView>
+</RelativeLayout>

@@ -17,10 +17,10 @@
         android:icon="@drawable/search_icon"
         android:title="Search" />
 
-    <item
-        android:id="@+id/navigation_user_help"
-        android:icon="@drawable/help"
-        android:title="Help" />
+<!--    <item-->
+<!--        android:id="@+id/navigation_user_help"-->
+<!--        android:icon="@drawable/help"-->
+<!--        android:title="Help" />-->
 
 
     <item

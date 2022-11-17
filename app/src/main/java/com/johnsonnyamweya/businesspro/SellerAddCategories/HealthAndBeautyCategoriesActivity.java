@@ -1,14 +1,14 @@
-package com.johnsonnyamweya.businesspro.Categories;
-
-import androidx.appcompat.app.AppCompatActivity;
+package com.johnsonnyamweya.businesspro.SellerAddCategories;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-import com.johnsonnyamweya.businesspro.Sellers.SellerAddNewProductActivity;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.johnsonnyamweya.businesspro.R;
+import com.johnsonnyamweya.businesspro.Sellers.SellerAddNewProductActivity;
 
 public class HealthAndBeautyCategoriesActivity extends AppCompatActivity {
 
@@ -25,14 +25,11 @@ public class HealthAndBeautyCategoriesActivity extends AppCompatActivity {
         TextView oralCare = findViewById(R.id.oral_care);
         TextView healthcare = findViewById(R.id.health_care);
 
-        hairCare.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(HealthAndBeautyCategoriesActivity.this,
-                        SellerAddNewProductActivity.class);
-                intent.putExtra("category", "Hair Care");
-                startActivity(intent);
-            }
+        hairCare.setOnClickListener(view -> {
+            Intent intent = new Intent(HealthAndBeautyCategoriesActivity.this,
+                    SellerAddNewProductActivity.class);
+            intent.putExtra("category", "Health and Beauty");
+            startActivity(intent);
         });
 
         personalCare.setOnClickListener(new View.OnClickListener() {
@@ -40,7 +37,7 @@ public class HealthAndBeautyCategoriesActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(HealthAndBeautyCategoriesActivity.this,
                         SellerAddNewProductActivity.class);
-                intent.putExtra("category", "Personal Care");
+                intent.putExtra("category", "Health and Beauty");
                 startActivity(intent);
             }
         });
@@ -50,7 +47,7 @@ public class HealthAndBeautyCategoriesActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(HealthAndBeautyCategoriesActivity.this,
                         SellerAddNewProductActivity.class);
-                intent.putExtra("category", "Fragrances");
+                intent.putExtra("category", "Health and Beauty");
                 startActivity(intent);
             }
         });
@@ -60,7 +57,7 @@ public class HealthAndBeautyCategoriesActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(HealthAndBeautyCategoriesActivity.this,
                         SellerAddNewProductActivity.class);
-                intent.putExtra("category", "Makeup");
+                intent.putExtra("category", "Health and Beauty");
                 startActivity(intent);
             }
         });
@@ -70,7 +67,7 @@ public class HealthAndBeautyCategoriesActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(HealthAndBeautyCategoriesActivity.this,
                         SellerAddNewProductActivity.class);
-                intent.putExtra("category", "Men Grooming");
+                intent.putExtra("category", "Health and Beauty");
                 startActivity(intent);
             }
         });
@@ -80,7 +77,7 @@ public class HealthAndBeautyCategoriesActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(HealthAndBeautyCategoriesActivity.this,
                         SellerAddNewProductActivity.class);
-                intent.putExtra("category", "Oral Care");
+                intent.putExtra("category", "Health and Beauty");
                 startActivity(intent);
             }
         });
@@ -90,7 +87,7 @@ public class HealthAndBeautyCategoriesActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(HealthAndBeautyCategoriesActivity.this,
                         SellerAddNewProductActivity.class);
-                intent.putExtra("category", "Health Care");
+                intent.putExtra("category", "Health and Beauty");
                 startActivity(intent);
             }
         });

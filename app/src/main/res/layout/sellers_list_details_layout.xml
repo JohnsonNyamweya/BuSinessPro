@@ -5,10 +5,22 @@
     android:orientation="vertical">
 
     <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:text="List of registered sellers"
+        android:textSize="24sp"
+        android:gravity="center_horizontal"
+        android:textColor="@color/teal_200"
+        android:padding="6dp"/>
+
+    <TextView
         android:id="@+id/seller_details_list_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:text="Name"
@@ -18,7 +30,7 @@
         android:id="@+id/seller_details_list_phone_number"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:text="Phone Number"
@@ -28,7 +40,7 @@
         android:id="@+id/seller_details_list_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:text="Email Address"
@@ -38,7 +50,7 @@
         android:id="@+id/seller_list_details_address"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:text="Shop Number Address"

@@ -1,22 +1,19 @@
 package com.johnsonnyamweya.businesspro.Admins;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.johnsonnyamweya.businesspro.Models.Products;
@@ -63,32 +60,26 @@ public class AdminCheckNewProductsActivity extends AppCompatActivity {
                         holder.txtProductPrice.setText("Price = KShs " + model.getPrice());
                         Picasso.get().load(model.getImage()).into(holder.productImage);
 
-                        holder.itemView.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                final String productID = model.getPid();
-                                CharSequence options[] = new CharSequence[]{
-                                       "Yes",
-                                       "No"
-                                };
+                        holder.itemView.setOnClickListener(view -> {
+                            final String productID = model.getPid();
+                            CharSequence options1[] = new CharSequence[]{
+                                   "Yes",
+                                   "No"
+                            };
 
-                                AlertDialog.Builder builder = new AlertDialog.Builder(AdminCheckNewProductsActivity.this);
-                                builder.setTitle("Are you sure you want to Approve this Product?");
-                                builder.setItems(options, new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialogInterface, int position) {
-                                        if (position == 0){
-                                            changeProductState(productID);
-                                        }
-                                        if (position == 1){
+                            AlertDialog.Builder builder = new AlertDialog.Builder(AdminCheckNewProductsActivity.this);
+                            builder.setTitle("Are you sure you want to Approve this Product?");
+                            builder.setItems(options1, (dialogInterface, position1) -> {
+                                if (position1 == 0){
+                                    changeProductState(productID);
+                                }
+                                if (position1 == 1){
 
-                                        }
-                                    }
-                                });
+                                }
+                            });
 
-                                builder.show();
+                            builder.show();
 
-                            }
                         });
 
                     }
@@ -110,16 +101,13 @@ public class AdminCheckNewProductsActivity extends AppCompatActivity {
     private void changeProductState(String productID) {
 
         unverifiedProductsRef.child(productID).child("productState").setValue("Approved")
-        .addOnCompleteListener(new OnCompleteListener<Void>() {
-            @Override
-            public void onComplete(@NonNull Task<Void> task) {
-                if (task.isSuccessful()){
-                    Toast.makeText(AdminCheckNewProductsActivity.this,
-                            "The product has been Approved, and now it is available from the seller", Toast.LENGTH_SHORT).show();
-                }
-                else {
-                    task.getException().getMessage();
-                }
+        .addOnCompleteListener(task -> {
+            if (task.isSuccessful()){
+                Toast.makeText(AdminCheckNewProductsActivity.this,
+                        "The product has been Approved, and now it is available from the seller", Toast.LENGTH_SHORT).show();
+            }
+            else {
+                task.getException().getMessage();
             }
         });
 

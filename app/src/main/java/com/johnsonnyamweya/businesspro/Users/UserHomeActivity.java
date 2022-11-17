@@ -15,7 +15,6 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
@@ -24,10 +23,22 @@ import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.johnsonnyamweya.businesspro.CategoriesUnderUser.CategoryOfComputingActivity;
+import com.johnsonnyamweya.businesspro.CategoriesUnderUser.CategoryOfElectronicsActivity;
+import com.johnsonnyamweya.businesspro.CategoriesUnderUser.CategoryOfFashionActivity;
+import com.johnsonnyamweya.businesspro.CategoriesUnderUser.CategoryOfGamingActivity;
+import com.johnsonnyamweya.businesspro.CategoriesUnderUser.CategoryOfGardenAndOutdoorsActivity;
+import com.johnsonnyamweya.businesspro.CategoriesUnderUser.CategoryOfHealthAndBeautyActivity;
+import com.johnsonnyamweya.businesspro.CategoriesUnderUser.CategoryOfHomeAndBeautyActivity;
+import com.johnsonnyamweya.businesspro.CategoriesUnderUser.CategoryOfPhonesAndTabletsActivity;
+import com.johnsonnyamweya.businesspro.CategoriesUnderUser.CategoryOfSecondhandGoodsActivity;
+import com.johnsonnyamweya.businesspro.CategoriesUnderUser.CategoryOfSportingGoodsActivity;
+import com.johnsonnyamweya.businesspro.CategoriesUnderUser.CategoryOfSupermarketActivity;
 import com.johnsonnyamweya.businesspro.MainActivity;
 import com.johnsonnyamweya.businesspro.Models.Products;
 import com.johnsonnyamweya.businesspro.Models.ProductsViewHolder;
 import com.johnsonnyamweya.businesspro.R;
+import com.johnsonnyamweya.businesspro.SellerAddCategories.BabyProductsCategoriesActivity;
 import com.squareup.picasso.Picasso;
 
 public class UserHomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
@@ -36,9 +47,6 @@ public class UserHomeActivity extends AppCompatActivity implements NavigationVie
     private FirebaseAuth mAuth;
     private RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
-
-    private BottomNavigationView bottomNavigationView;
-
 
 
     @Override
@@ -54,19 +62,9 @@ public class UserHomeActivity extends AppCompatActivity implements NavigationVie
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle("Category");
         setSupportActionBar(toolbar);
-
-        SwipeRefreshLayout swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.user_refreshLayout);
-
-        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                swipeRefreshLayout.setRefreshing(false);
-            }
-        });
-
 
         DrawerLayout drawerLayout = findViewById(R.id.user_drawer_layout);
 
@@ -76,56 +74,53 @@ public class UserHomeActivity extends AppCompatActivity implements NavigationVie
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
 
-        bottomNavigationView = (BottomNavigationView) findViewById(R.id.user_bottom_nav_view);
+        BottomNavigationView bottomNavigationView = findViewById(R.id.user_bottom_nav_view);
 
         NavigationView navigationView = findViewById(R.id.user_nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
 
-                switch (item.getItemId()){
-                    case R.id.navigation_user_home:
+            switch (item.getItemId()){
+                case R.id.navigation_user_home:
 
-                        Intent intentHome = new Intent(UserHomeActivity.this, UserHomeActivity.class);
-                        startActivity(intentHome);
+                    Intent intentHome = new Intent(UserHomeActivity.this, UserHomeActivity.class);
+                    startActivity(intentHome);
 
-                        return true;
+                    return true;
 
 
-                    case R.id.navigation_user_cart:
+                case R.id.navigation_user_cart:
 
-                        Intent cartIntent = new Intent(UserHomeActivity.this, CartActivity.class);
-                        startActivity(cartIntent);
+                    Intent cartIntent = new Intent(UserHomeActivity.this, CartActivity.class);
+                    startActivity(cartIntent);
 
-                        return true;
+                    return true;
 
-                    case R.id.navigation_user_search:
+                case R.id.navigation_user_search:
 
-                        Intent userSearchIntent = new Intent(UserHomeActivity.this, SearchActivity.class);
-                        startActivity(userSearchIntent);
+                    Intent userSearchIntent = new Intent(UserHomeActivity.this, SearchActivity.class);
+                    startActivity(userSearchIntent);
 
-                        return true;
+                    return true;
 
-                    case R.id.navigation_user_help:
+//                case R.id.navigation_user_help:
+//
+//                    Intent userHelpIntent = new Intent(UserHomeActivity.this, UserHelpActivity.class);
+//                    startActivity(userHelpIntent);
+//
+//                    return true;
 
-                        Intent userHelpIntent = new Intent(UserHomeActivity.this, UserHelpActivity.class);
-                        startActivity(userHelpIntent);
+                case R.id.navigation_user_logout:
+                    mAuth.signOut();
 
-                        return true;
+                    Intent userMainIntent = new Intent(UserHomeActivity.this, MainActivity.class);
+                    startActivity(userMainIntent);
 
-                    case R.id.navigation_user_logout:
-                        mAuth.signOut();
-
-                        Intent userMainIntent = new Intent(UserHomeActivity.this, MainActivity.class);
-                        startActivity(userMainIntent);
-
-                        return true;
-                }
-
-                return false;
+                    return true;
             }
+
+            return false;
         });
 
     }
@@ -149,14 +144,11 @@ public class UserHomeActivity extends AppCompatActivity implements NavigationVie
                 holder.txtProductPrice.setText("Price = KShs " + model.getPrice());
                 Picasso.get().load(model.getImage()).into(holder.productImage);
 
-                holder.itemView.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        Intent productDetailsIntent = new Intent(UserHomeActivity.this,
-                                ProductDetailsActivity.class);
-                        productDetailsIntent.putExtra("pid", model.getPid());
-                        startActivity(productDetailsIntent);
-                    }
+                holder.itemView.setOnClickListener(view -> {
+                    Intent productDetailsIntent = new Intent(UserHomeActivity.this,
+                            ProductDetailsActivity.class);
+                    productDetailsIntent.putExtra("pid", model.getPid());
+                    startActivity(productDetailsIntent);
                 });
 
             }
@@ -194,11 +186,84 @@ public class UserHomeActivity extends AppCompatActivity implements NavigationVie
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
+        int id = item.getItemId();
 
-        return false;
+        if (id == R.id.nav_supermarket)
+        {
+                Intent supermarketCategoryIntent =
+                        new Intent(UserHomeActivity.this, CategoryOfSupermarketActivity.class);
+                startActivity(supermarketCategoryIntent);
+        }
+        else if (id == R.id.nav_phones_tablets)
+        {
+            Intent phonesAndTabletsCategoryIntent =
+                    new Intent(UserHomeActivity.this, CategoryOfPhonesAndTabletsActivity.class);
+            startActivity(phonesAndTabletsCategoryIntent);
+        }
+        else if (id == R.id.nav_computing)
+        {
+            Intent computingCategoryIntent =
+                    new Intent(UserHomeActivity.this, CategoryOfComputingActivity.class);
+            startActivity(computingCategoryIntent);
+        }
+        else if (id == R.id.nav_electronics)
+        {
+            Intent electronicsCategoryIntent =
+                    new Intent(UserHomeActivity.this, CategoryOfElectronicsActivity.class);
+            startActivity(electronicsCategoryIntent);
+        }
+        else if (id == R.id.nav_fashion)
+        {
+            Intent fashionCategoryIntent =
+                    new Intent(UserHomeActivity.this, CategoryOfFashionActivity.class);
+            startActivity(fashionCategoryIntent);
+        }
+        else if (id == R.id.nav_gaming)
+        {
+            Intent gamingCategoryIntent =
+                    new Intent(UserHomeActivity.this, CategoryOfGamingActivity.class);
+            startActivity(gamingCategoryIntent);
+        }
+        else if (id == R.id.nav_sporting_goods)
+        {
+            Intent sportingGoodsCategoryIntent =
+                    new Intent(UserHomeActivity.this, CategoryOfSportingGoodsActivity.class);
+            startActivity(sportingGoodsCategoryIntent);
+        }
+        else if (id == R.id.nav_garden_and_outdoors)
+        {
+            Intent gardenAndOutdoorsCategoryIntent =
+                    new Intent(UserHomeActivity.this, CategoryOfGardenAndOutdoorsActivity.class);
+            startActivity(gardenAndOutdoorsCategoryIntent);
+        }
+        else if (id == R.id.nav_home_and_beauty)
+        {
+            Intent homeAndBeautyCategoryIntent =
+                    new Intent(UserHomeActivity.this, CategoryOfHomeAndBeautyActivity.class);
+            startActivity(homeAndBeautyCategoryIntent);
+        }
+        else if (id == R.id.nav_health_and_beauty)
+        {
+            Intent healthAndBeautyCategoryIntent =
+                    new Intent(UserHomeActivity.this, CategoryOfHealthAndBeautyActivity.class);
+            startActivity(healthAndBeautyCategoryIntent);
+        }
+        else if (id == R.id.nav_baby_products)
+        {
+            Intent babyProductsCategoryIntent =
+                    new Intent(UserHomeActivity.this, BabyProductsCategoriesActivity.class);
+            startActivity(babyProductsCategoryIntent);
+        }
 
-//        DrawerLayout drawerLayout = findViewById(R.id.user_drawer_layout);
-//        drawerLayout.closeDrawer(GravityCompat.START);
-//        return true;
+        else if (id == R.id.nav_second_hand_goods)
+        {
+            Intent secondHandGoodsCategoryIntent =
+                    new Intent(UserHomeActivity.this, CategoryOfSecondhandGoodsActivity.class);
+            startActivity(secondHandGoodsCategoryIntent);
+        }
+        DrawerLayout drawer = findViewById(R.id.user_drawer_layout);
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
+
     }
 }

@@ -3,7 +3,6 @@ package com.johnsonnyamweya.businesspro.Sellers;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -12,8 +11,6 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -23,10 +20,10 @@ import com.johnsonnyamweya.businesspro.R;
 import com.squareup.picasso.Picasso;
 
 import java.util.HashMap;
+import java.util.Objects;
 
 public class MaintainProductsActivity extends AppCompatActivity {
 
-    private Button applyChangesBtn, deleteBtn;
     private EditText name, price, description;
     private ImageView imageView;
 
@@ -42,8 +39,8 @@ public class MaintainProductsActivity extends AppCompatActivity {
 
         productsRef = FirebaseDatabase.getInstance().getReference().child("Products").child(productID);
 
-        applyChangesBtn = findViewById(R.id.apply_changes_btn);
-        deleteBtn = findViewById(R.id.delete_product_btn);
+        Button applyChangesBtn = findViewById(R.id.apply_changes_btn);
+        Button deleteBtn = findViewById(R.id.delete_product_btn);
         name = findViewById(R.id.product_name_maintain);
         description = findViewById(R.id.product_description_maintain);
         price = findViewById(R.id.product_price_maintain);
@@ -51,19 +48,9 @@ public class MaintainProductsActivity extends AppCompatActivity {
 
         displaySpecificProductInfo();
 
-        applyChangesBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                applyChanges();
-            }
-        });
+        applyChangesBtn.setOnClickListener(view -> applyChanges());
 
-        deleteBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                deleteProduct();
-            }
-        });
+        deleteBtn.setOnClickListener(view -> deleteProduct());
 
     }
 
@@ -93,21 +80,18 @@ public class MaintainProductsActivity extends AppCompatActivity {
             maintainMap.put("price", productPrice);
             maintainMap.put("description", productDescription);
 
-            productsRef.updateChildren(maintainMap).addOnCompleteListener(new OnCompleteListener<Void>() {
-                @Override
-                public void onComplete(@NonNull Task<Void> task) {
-                    if (task.isSuccessful()){
-                        Toast.makeText(MaintainProductsActivity.this,
-                                "Applied changes successfully", Toast.LENGTH_SHORT).show();
+            productsRef.updateChildren(maintainMap).addOnCompleteListener(task -> {
+                if (task.isSuccessful()){
+                    Toast.makeText(MaintainProductsActivity.this,
+                            "Applied changes successfully", Toast.LENGTH_SHORT).show();
 
-                        Intent intent = new Intent(MaintainProductsActivity.this,
-                                SellerHomeActivity.class);
-                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-                        startActivity(intent);
-                        finish();
+                    Intent intent = new Intent(MaintainProductsActivity.this,
+                            SellerHomeActivity.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(intent);
+                    finish();
 
 
-                    }
                 }
             });
 
@@ -117,26 +101,23 @@ public class MaintainProductsActivity extends AppCompatActivity {
 
     private void deleteProduct() {
 
-        productsRef.removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
-            @Override
-            public void onComplete(@NonNull Task<Void> task) {
-                if (task.isSuccessful()){
-                    Intent intent = new Intent(MaintainProductsActivity.this,
-                            SellerHomeActivity.class);
-                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-                    startActivity(intent);
-                    finish();
+        productsRef.removeValue().addOnCompleteListener(task -> {
+            if (task.isSuccessful()){
+                Intent intent = new Intent(MaintainProductsActivity.this,
+                        SellerHomeActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                finish();
 
-                    Toast.makeText(MaintainProductsActivity.this,
-                            "Product deleted successfully", Toast.LENGTH_SHORT).show();
-
-                }
-
-                else {
-                    task.getException().getMessage();
-                }
+                Toast.makeText(MaintainProductsActivity.this,
+                        "Product deleted successfully", Toast.LENGTH_SHORT).show();
 
             }
+
+            else {
+                Objects.requireNonNull(task.getException()).getMessage();
+            }
+
         });
 
     }
@@ -148,10 +129,10 @@ public class MaintainProductsActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
                 if (snapshot.exists()){
-                    String pName = snapshot.child("pName").getValue().toString();
-                    String pDescription = snapshot.child("description").getValue().toString();
-                    String pPrice = snapshot.child("price").getValue().toString();
-                    String pImage = snapshot.child("image").getValue().toString();
+                    String pName = Objects.requireNonNull(snapshot.child("pName").getValue()).toString();
+                    String pDescription = Objects.requireNonNull(snapshot.child("description").getValue()).toString();
+                    String pPrice = Objects.requireNonNull(snapshot.child("price").getValue()).toString();
+                    String pImage = Objects.requireNonNull(snapshot.child("image").getValue()).toString();
 
                     name.setText(pName);
                     description.setText(pDescription);

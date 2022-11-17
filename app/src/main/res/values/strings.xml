@@ -3,4 +3,27 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="title_activity_deliverer_map">DelivererMapActivity</string>
+    <string name="welcome_dear_admin">Welcome Dear Admin</string>
+    <string name="check_new_orders_button">Check New Orders</string>
+    <string name="check_and_approve_new_products_button">Check and Approve New Products</string>
+    <string name="register_seller_button">Register Seller</string>
+    <string name="register_deliverer_button">Register Deliverer</string>
+    <string name="logout_button">Logout</string>
+    <string name="view_sellers_button">View Sellers</string>
+    <string name="view_deliverers_button">View Deliverers</string>
+    <string name="supermarket_category">Supermarket</string>
+    <string name="phones_and_tablets_category">Phones and Tablets</string>
+    <string name="computing_category">Computing</string>
+    <string name="electronics_category">Electronics</string>
+    <string name="fashion_category">Fashion</string>
+    <string name="gaming_category">Gaming</string>
+    <string name="sporting_goods_category">Sporting Goods</string>
+    <string name="garden_and_outdoors_category">Garden and Outdoors</string>
+    <string name="home_and_beauty_category">Home and Beauty</string>
+    <string name="healthy_and_beauty_category">Healthy and Beauty</string>
+    <string name="baby_products_category">Baby Products</string>
+    <string name="secondhand_goods_category">Secondhand Goods</string>
+    <string name="contact_admin">Contact Admin</string>
+    <string name="motto">BusinessPro\n All Time Trusted E-commerce Site...</string>
+    <string name="main_logo_description">App logo icon</string>
 </resources>

@@ -11,7 +11,7 @@ import com.johnsonnyamweya.businesspro.R;
 
 public class SellersListViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-    private ItemClickListener listener;
+    public ItemClickListener listener;
 
     public TextView sellerListName, sellerListPhone, sellerListAddress, sellerListEmail;
 
@@ -27,7 +27,7 @@ public class SellersListViewHolder extends RecyclerView.ViewHolder implements Vi
 
     @Override
     public void onClick(View view) {
-        listener.onclick(view, getAbsoluteAdapterPosition(), false);
+        listener.onclick(view, getAdapterPosition(), false);
     }
 
     public void setItemClickListener(ItemClickListener listener){

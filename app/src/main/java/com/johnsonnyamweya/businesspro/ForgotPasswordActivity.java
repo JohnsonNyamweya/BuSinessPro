@@ -1,8 +1,5 @@
 package com.johnsonnyamweya.businesspro;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
@@ -12,13 +9,14 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.firebase.auth.FirebaseAuth;
+
+import java.util.Objects;
 
 public class ForgotPasswordActivity extends AppCompatActivity {
 
-    private Button btnResetPassword;
     private EditText edtEmail;
     ProgressBar progressBar;
 
@@ -32,15 +30,10 @@ public class ForgotPasswordActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
 
         edtEmail = findViewById(R.id.edt_forgot_password_email);
-        btnResetPassword = (Button) findViewById(R.id.btn_forgot_password);
+        Button btnResetPassword = findViewById(R.id.btn_forgot_password);
         progressBar = findViewById(R.id.pb_loading);
 
-        btnResetPassword.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                resetPassword();
-            }
-        });
+        btnResetPassword.setOnClickListener(view -> resetPassword());
 
     }
 
@@ -55,24 +48,21 @@ public class ForgotPasswordActivity extends AppCompatActivity {
         }
 
         progressBar.setVisibility(View.VISIBLE);
-        mAuth.sendPasswordResetEmail(txtEmail).addOnCompleteListener(new OnCompleteListener<Void>() {
-            @Override
-            public void onComplete(@NonNull Task<Void> task) {
-                if (task.isSuccessful()){
-                    Toast.makeText(ForgotPasswordActivity.this,
-                            "Please Check Your Email To Reset Password", Toast.LENGTH_SHORT).show();
+        mAuth.sendPasswordResetEmail(txtEmail).addOnCompleteListener(task -> {
+            if (task.isSuccessful()){
+                Toast.makeText(ForgotPasswordActivity.this,
+                        "Please Check Your Email To Reset Password", Toast.LENGTH_SHORT).show();
 
-                    progressBar.setVisibility(View.GONE);
+                progressBar.setVisibility(View.GONE);
 
-                    Intent intent = new Intent(ForgotPasswordActivity.this, MainActivity.class);
-                    startActivity(intent);
-                }
-                else {
-                    Toast.makeText(ForgotPasswordActivity.this,
-                            "Error " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(ForgotPasswordActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+            else {
+                Toast.makeText(ForgotPasswordActivity.this,
+                        "Error " + Objects.requireNonNull(task.getException()).getMessage(), Toast.LENGTH_SHORT).show();
 
-                    progressBar.setVisibility(View.GONE);
-                }
+                progressBar.setVisibility(View.GONE);
             }
         });
     }

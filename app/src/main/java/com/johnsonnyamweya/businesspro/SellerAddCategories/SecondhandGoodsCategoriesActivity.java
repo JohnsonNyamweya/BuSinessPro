@@ -1,14 +1,14 @@
-package com.johnsonnyamweya.businesspro.Categories;
-
-import androidx.appcompat.app.AppCompatActivity;
+package com.johnsonnyamweya.businesspro.SellerAddCategories;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-import com.johnsonnyamweya.businesspro.Sellers.SellerAddNewProductActivity;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.johnsonnyamweya.businesspro.R;
+import com.johnsonnyamweya.businesspro.Sellers.SellerAddNewProductActivity;
 
 public class SecondhandGoodsCategoriesActivity extends AppCompatActivity {
 
@@ -33,7 +33,7 @@ public class SecondhandGoodsCategoriesActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(SecondhandGoodsCategoriesActivity.this,
                         SellerAddNewProductActivity.class);
-                intent.putExtra("category", "Electronics2");
+                intent.putExtra("category", "Secondhand Goods");
                 startActivity(intent);
             }
         });
@@ -43,7 +43,7 @@ public class SecondhandGoodsCategoriesActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(SecondhandGoodsCategoriesActivity.this,
                         SellerAddNewProductActivity.class);
-                intent.putExtra("category", "Fashion2");
+                intent.putExtra("category", "Secondhand Goods");
                 startActivity(intent);
             }
         });
@@ -53,7 +53,7 @@ public class SecondhandGoodsCategoriesActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(SecondhandGoodsCategoriesActivity.this,
                         SellerAddNewProductActivity.class);
-                intent.putExtra("category", "Gaming2");
+                intent.putExtra("category", "Secondhand Goods");
                 startActivity(intent);
             }
         });
@@ -63,7 +63,7 @@ public class SecondhandGoodsCategoriesActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(SecondhandGoodsCategoriesActivity.this,
                         SellerAddNewProductActivity.class);
-                intent.putExtra("category", "Sporting Goods2");
+                intent.putExtra("category", "Secondhand Goods");
                 startActivity(intent);
             }
         });
@@ -73,7 +73,7 @@ public class SecondhandGoodsCategoriesActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(SecondhandGoodsCategoriesActivity.this,
                         SellerAddNewProductActivity.class);
-                intent.putExtra("category", "Garden Outdoors2");
+                intent.putExtra("category", "Secondhand Goods");
                 startActivity(intent);
             }
         });
@@ -83,7 +83,7 @@ public class SecondhandGoodsCategoriesActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(SecondhandGoodsCategoriesActivity.this,
                         SellerAddNewProductActivity.class);
-                intent.putExtra("category", "Home and Beauty2");
+                intent.putExtra("category", "Secondhand Goods");
                 startActivity(intent);
             }
         });
@@ -93,7 +93,7 @@ public class SecondhandGoodsCategoriesActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(SecondhandGoodsCategoriesActivity.this,
                         SellerAddNewProductActivity.class);
-                intent.putExtra("category", "Phone and Tablets2");
+                intent.putExtra("category", "Secondhand Goods");
                 startActivity(intent);
             }
         });
@@ -103,7 +103,7 @@ public class SecondhandGoodsCategoriesActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(SecondhandGoodsCategoriesActivity.this,
                         SellerAddNewProductActivity.class);
-                intent.putExtra("category", "Computing2");
+                intent.putExtra("category", "Secondhand Goods");
                 startActivity(intent);
             }
         });
@@ -113,7 +113,7 @@ public class SecondhandGoodsCategoriesActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(SecondhandGoodsCategoriesActivity.this,
                         SellerAddNewProductActivity.class);
-                intent.putExtra("category", "Health and Beauty2");
+                intent.putExtra("category", "Secondhand Goods");
                 startActivity(intent);
             }
         });
@@ -123,7 +123,7 @@ public class SecondhandGoodsCategoriesActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(SecondhandGoodsCategoriesActivity.this,
                         SellerAddNewProductActivity.class);
-                intent.putExtra("category", "Baby Products2");
+                intent.putExtra("category", "Secondhand Goods");
                 startActivity(intent);
             }
         });

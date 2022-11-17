@@ -1,24 +1,11 @@
 package com.johnsonnyamweya.businesspro.Sellers;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.TextView;
 
-import com.johnsonnyamweya.businesspro.Categories.BabyProductsCategoriesActivity;
-import com.johnsonnyamweya.businesspro.Categories.ComputingCategoriesActivity;
-import com.johnsonnyamweya.businesspro.Categories.ElectronicsCategoriesActivity;
-import com.johnsonnyamweya.businesspro.Categories.FashionCategoriesActivity;
-import com.johnsonnyamweya.businesspro.Categories.GamingCategoriesActivity;
-import com.johnsonnyamweya.businesspro.Categories.GardenAndOutdoorsCategoriesActivity;
-import com.johnsonnyamweya.businesspro.Categories.HealthAndBeautyCategoriesActivity;
-import com.johnsonnyamweya.businesspro.Categories.HomeAndBeautyCategoriesActivity;
-import com.johnsonnyamweya.businesspro.Categories.PhonesAndTabletsCategoriesActivity;
-import com.johnsonnyamweya.businesspro.Categories.SecondhandGoodsCategoriesActivity;
-import com.johnsonnyamweya.businesspro.Categories.SportingGoodsCategoriesActivity;
-import com.johnsonnyamweya.businesspro.Categories.SupermarketCategoriesActivity;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.johnsonnyamweya.businesspro.R;
 
 public class SellerProductsCategoryActivity extends AppCompatActivity {
@@ -46,113 +33,89 @@ public class SellerProductsCategoryActivity extends AppCompatActivity {
 
 
 
-        supermarkets.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(SellerProductsCategoryActivity.this,
-                        SupermarketCategoriesActivity.class);
-                startActivity(intent);
-            }
+        supermarkets.setOnClickListener(view -> {
+            Intent intent = new Intent(SellerProductsCategoryActivity.this,
+                    SellerAddNewProductActivity.class);
+            intent.putExtra("category", "Supermarkets");
+            startActivity(intent);
         });
 
-        phonesTablets.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(SellerProductsCategoryActivity.this,
-                        PhonesAndTabletsCategoriesActivity.class);
-                startActivity(intent);
-            }
+        phonesTablets.setOnClickListener(view -> {
+            Intent intent = new Intent(SellerProductsCategoryActivity.this,
+                    SellerAddNewProductActivity.class);
+            intent.putExtra("category", "Phones and Tablets");
+            startActivity(intent);
         });
 
-        computing.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        computing.setOnClickListener(view -> {
 
-                    Intent intent = new Intent(SellerProductsCategoryActivity.this,
-                            ComputingCategoriesActivity.class);
-                    startActivity(intent);
-            }
+                Intent intent = new Intent(SellerProductsCategoryActivity.this,
+                        SellerAddNewProductActivity.class);
+            intent.putExtra("category", "Computing");
+                startActivity(intent);
         });
 
-        electronics.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(SellerProductsCategoryActivity.this,
-                        ElectronicsCategoriesActivity.class);
-                startActivity(intent);
-            }
+        electronics.setOnClickListener(view -> {
+            Intent intent = new Intent(SellerProductsCategoryActivity.this,
+                    SellerAddNewProductActivity.class);
+            intent.putExtra("category", "Electronics");
+            startActivity(intent);
         });
 
-        fashion.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(SellerProductsCategoryActivity.this,
-                        FashionCategoriesActivity.class);
-                startActivity(intent);
-            }
+        fashion.setOnClickListener(view -> {
+            Intent intent = new Intent(SellerProductsCategoryActivity.this,
+                    SellerAddNewProductActivity.class);
+            intent.putExtra("category", "Fashion");
+            startActivity(intent);
         });
 
-        gaming.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(SellerProductsCategoryActivity.this,
-                        GamingCategoriesActivity.class);
-                startActivity(intent);
-            }
+        gaming.setOnClickListener(view -> {
+            Intent intent = new Intent(SellerProductsCategoryActivity.this,
+                    SellerAddNewProductActivity.class);
+            intent.putExtra("category", "Gaming");
+            startActivity(intent);
         });
 
-        sportingGoods.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(SellerProductsCategoryActivity.this,
-                        SportingGoodsCategoriesActivity.class);
-                startActivity(intent);
-            }
+        sportingGoods.setOnClickListener(view -> {
+            Intent intent = new Intent(SellerProductsCategoryActivity.this,
+                    SellerAddNewProductActivity.class);
+            intent.putExtra("category", "Sporting Goods");
+            startActivity(intent);
         });
 
-        gardenAndOutDoors.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(SellerProductsCategoryActivity.this,
-                        GardenAndOutdoorsCategoriesActivity.class);
-                startActivity(intent);
-            }
+        gardenAndOutDoors.setOnClickListener(view -> {
+            Intent intent = new Intent(SellerProductsCategoryActivity.this,
+                    SellerAddNewProductActivity.class);
+            intent.putExtra("category", "Garden and Outdoors");
+            startActivity(intent);
         });
 
-        homeAndBeauty.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(SellerProductsCategoryActivity.this,
-                        HomeAndBeautyCategoriesActivity.class);
-                startActivity(intent);
-            }
+        homeAndBeauty.setOnClickListener(view -> {
+            Intent intent = new Intent(SellerProductsCategoryActivity.this,
+                    SellerAddNewProductActivity.class);
+            intent.putExtra("category", "Home and Beauty");
+            startActivity(intent);
         });
 
-        healthAndBeauty.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(SellerProductsCategoryActivity.this,
-                        HealthAndBeautyCategoriesActivity.class);
-                startActivity(intent);
-            }
+        healthAndBeauty.setOnClickListener(view -> {
+            Intent intent = new Intent(SellerProductsCategoryActivity.this,
+                    SellerAddNewProductActivity.class);
+            intent.putExtra("category", "Health and Beauty");
+            startActivity(intent);
         });
 
-        babyProducts.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(SellerProductsCategoryActivity.this,
-                        BabyProductsCategoriesActivity.class);
-                startActivity(intent);
-            }
+        babyProducts.setOnClickListener(view -> {
+            Intent intent = new Intent(SellerProductsCategoryActivity.this,
+                    SellerAddNewProductActivity.class);
+            intent.putExtra("category", "Baby Products");
+            startActivity(intent);
         });
 
-        secondhandGoods.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(SellerProductsCategoryActivity.this,
-                        SecondhandGoodsCategoriesActivity.class);
-                startActivity(intent);
-            }
+        secondhandGoods.setOnClickListener(view -> {
+            Intent intent = new Intent(SellerProductsCategoryActivity.this,
+                    SellerAddNewProductActivity.class);
+            intent.putExtra("category", "Secondhand Goods");
+            startActivity(intent);
         });
 
 

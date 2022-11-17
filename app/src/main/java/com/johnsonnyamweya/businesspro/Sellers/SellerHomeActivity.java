@@ -3,7 +3,6 @@ package com.johnsonnyamweya.businesspro.Sellers;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -28,7 +27,6 @@ import com.squareup.picasso.Picasso;
 public class SellerHomeActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
-    private BottomNavigationView bottomNavigationView;
     private RecyclerView sellerProductsRecyclerview;
     RecyclerView.LayoutManager layoutManager;
     private DatabaseReference unverifiedProductsRef;
@@ -53,41 +51,38 @@ public class SellerHomeActivity extends AppCompatActivity {
         layoutManager = new LinearLayoutManager(this);
         sellerProductsRecyclerview.setLayoutManager(layoutManager);
 
-        bottomNavigationView = (BottomNavigationView) findViewById(R.id.nav_view);
+        BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.nav_view);
 
         bottomNavigationView.setOnNavigationItemSelectedListener(
-                new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                item -> {
 
-                switch (item.getItemId()){
-                    case R.id.navigation_home:
-                        Intent intentHome = new Intent(SellerHomeActivity.this,
-                                SellerHomeActivity.class);
-                        startActivity(intentHome);
+                    switch (item.getItemId()){
+                        case R.id.navigation_home:
+                            Intent intentHome = new Intent(SellerHomeActivity.this,
+                                    SellerHomeActivity.class);
+                            startActivity(intentHome);
 
-                        return true;
+                            return true;
 
-                    case R.id.navigation_add:
-                        Intent intentCategory = new Intent(SellerHomeActivity.this,
-                                SellerProductsCategoryActivity.class);
-                        startActivity(intentCategory);
+                        case R.id.navigation_add:
+                            Intent intentCategory = new Intent(SellerHomeActivity.this,
+                                    SellerProductsCategoryActivity.class);
+                            startActivity(intentCategory);
 
-                        return true;
+                            return true;
 
-                    case R.id.navigation_logout:
+                        case R.id.navigation_logout:
 
-                        mAuth.signOut();
+                            mAuth.signOut();
 
-                        Intent intent_main = new Intent(SellerHomeActivity.this, MainActivity.class);
-                        startActivity(intent_main);
-                        return true;
+                            Intent intent_main = new Intent(SellerHomeActivity.this, MainActivity.class);
+                            startActivity(intent_main);
+                            return true;
 
-                }
+                    }
 
-                return false;
-            }
-        });
+                    return false;
+                });
 
     }
 

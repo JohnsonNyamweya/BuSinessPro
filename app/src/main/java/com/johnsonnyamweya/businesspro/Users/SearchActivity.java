@@ -25,7 +25,6 @@ import com.squareup.picasso.Picasso;
 public class SearchActivity extends AppCompatActivity {
 
     private EditText searchInput;
-    private Button searchButton;
     private RecyclerView searchRecyclerview;
     String searchInputString;
 
@@ -35,18 +34,15 @@ public class SearchActivity extends AppCompatActivity {
         setContentView(R.layout.activity_search);
 
         searchInput = findViewById(R.id.search_product_name);
-        searchButton = findViewById(R.id.search_btn);
+        Button searchButton = findViewById(R.id.search_btn);
         searchRecyclerview = findViewById(R.id.search_recyclerview);
 
         searchRecyclerview.setLayoutManager(new LinearLayoutManager(SearchActivity.this));
 
-        searchButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                searchInputString = searchInput.getText().toString().toLowerCase();
+        searchButton.setOnClickListener(view -> {
+            searchInputString = searchInput.getText().toString().toLowerCase();
 
-                onStart();
-            }
+            onStart();
         });
 
     }
@@ -73,13 +69,10 @@ public class SearchActivity extends AppCompatActivity {
                 holder.txtProductPrice.setText("Price = KShs " + model.getPrice());
                 Picasso.get().load(model.getImage()).into(holder.productImage);
 
-                holder.itemView.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        Intent intent = new Intent(SearchActivity.this, ProductDetailsActivity.class);
-                        intent.putExtra("pid", model.getPid());
-                        startActivity(intent);
-                    }
+                holder.itemView.setOnClickListener(view -> {
+                    Intent intent = new Intent(SearchActivity.this, ProductDetailsActivity.class);
+                    intent.putExtra("pid", model.getPid());
+                    startActivity(intent);
                 });
 
             }

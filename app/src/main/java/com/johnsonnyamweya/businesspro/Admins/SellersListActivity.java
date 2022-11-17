@@ -1,7 +1,6 @@
 package com.johnsonnyamweya.businesspro.Admins;
 
 import android.annotation.SuppressLint;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -17,8 +16,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.johnsonnyamweya.businesspro.Models.SellersList;
@@ -27,22 +24,18 @@ import com.johnsonnyamweya.businesspro.R;
 
 public class SellersListActivity extends AppCompatActivity {
 
-    private RecyclerView sellersRv;
+    RecyclerView sellersRv;
     RecyclerView.LayoutManager layoutManager;
-    DatabaseReference sellersListRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sellers_list);
 
-        sellersListRef = FirebaseDatabase.getInstance().getReference();
-
-        sellersRv = (RecyclerView) findViewById(R.id.sellers_list_rv);
+        sellersRv = findViewById(R.id.sellers_list_rv);
         layoutManager = new LinearLayoutManager(this);
         sellersRv.setHasFixedSize(true);
         sellersRv.setLayoutManager(layoutManager);
-
 
     }
 
@@ -50,54 +43,48 @@ public class SellersListActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
+        DatabaseReference sellersListRef = FirebaseDatabase.getInstance().getReference();
+
         FirebaseRecyclerOptions<SellersList> options = new FirebaseRecyclerOptions.Builder<SellersList>()
-                .setQuery(sellersListRef.child("Sellers").child("sid"), SellersList.class).build();
+                .setQuery(sellersListRef.child("Sellers"), SellersList.class).build();
 
         FirebaseRecyclerAdapter <SellersList, SellersListViewHolder> adapter =
                 new FirebaseRecyclerAdapter<SellersList, SellersListViewHolder>(options) {
             @Override
-            protected void onBindViewHolder(@NonNull SellersListViewHolder holder, @SuppressLint("RecyclerView") int position, @NonNull SellersList model) {
+            protected void onBindViewHolder(@NonNull SellersListViewHolder holder,
+                                            @SuppressLint("RecyclerView") int position, @NonNull SellersList model) {
 
                 holder.sellerListName.setText(model.getSellerListName());
                 holder.sellerListPhone.setText(model.getSellerListPhone());
                 holder.sellerListEmail.setText(model.getSellerListEmail());
                 holder.sellerListAddress.setText(model.getSellerListAddress());
 
-                holder.itemView.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        CharSequence options[] = new CharSequence[]{
-                                "Yes",
-                                "No"
-                        };
+                holder.itemView.setOnClickListener(view -> {
+                    CharSequence options1[] = new CharSequence[]{
+                            "Yes",
+                            "No"
+                    };
 
-                        AlertDialog.Builder builder = new AlertDialog.Builder(SellersListActivity.this);
-                        builder.setTitle("Are you sure you want to delete this seller?");
-                        builder.setItems(options, new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                if (position == 0){
-                                    sellersListRef.child("Sellers").child("sid").removeValue()
-                                            .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                                @Override
-                                                public void onComplete(@NonNull Task<Void> task) {
-                                                    Toast.makeText(SellersListActivity.this,
-                                                            "Seller deleted successfullyS", Toast.LENGTH_SHORT).show();
+                    AlertDialog.Builder builder = new AlertDialog.Builder(SellersListActivity.this);
+                    builder.setTitle("Are you sure you want to delete this seller?");
+                    builder.setItems(options1, (dialogInterface, i) -> {
+                        if (position == 0){
+                            sellersListRef.child("Sellers").child("sid").removeValue()
+                                    .addOnCompleteListener(task -> {
+                                        Toast.makeText(SellersListActivity.this,
+                                                "Seller deleted successfullyS", Toast.LENGTH_SHORT).show();
 
-                                                    Intent intent = new Intent(SellersListActivity.this, SellersListActivity.class);
-                                                    startActivity(intent);
-                                                }
-                                            });
-                                }
-                                if (position == 1){
-                                    finish();
-                                    Intent intent = new Intent(SellersListActivity.this, SellersListActivity.class);
-                                    startActivity(intent);
-                                }
-                            }
-                        });
+                                        Intent intent = new Intent(SellersListActivity.this, SellersListActivity.class);
+                                        startActivity(intent);
+                                    });
+                        }
+                        if (position == 1){
+                            finish();
+                            Intent intent = new Intent(SellersListActivity.this, SellersListActivity.class);
+                            startActivity(intent);
+                        }
+                    });
 
-                    }
                 });
 
             }
@@ -107,8 +94,8 @@ public class SellersListActivity extends AppCompatActivity {
             public SellersListViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
                View view = LayoutInflater.from(parent.getContext())
                        .inflate(R.layout.sellers_list_details_layout, parent, false);
-               SellersListViewHolder holder = new SellersListViewHolder(view);
-               return holder;
+               SellersListViewHolder sellersHolder = new SellersListViewHolder(view);
+               return sellersHolder;
             }
         };
 

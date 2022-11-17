@@ -3,7 +3,6 @@ package com.johnsonnyamweya.businesspro.Users;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -13,8 +12,6 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -28,10 +25,10 @@ import com.squareup.picasso.Picasso;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.HashMap;
+import java.util.Objects;
 
 public class ProductDetailsActivity extends AppCompatActivity {
 
-    private Button addToCartButton;
     private ImageView productImage;
     private TextView productName, productDescription, productPrice;
     private EditText productQuantity;
@@ -49,7 +46,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
 
         productID = getIntent().getStringExtra("pid");
 
-         addToCartButton = findViewById(R.id.product_details_add_to_cart_button);
+        Button addToCartButton = findViewById(R.id.product_details_add_to_cart_button);
          productImage = findViewById(R.id.product_image_details);
          productName = findViewById(R.id.product_name_details);
          productDescription = findViewById(R.id.product_description_details);
@@ -58,28 +55,25 @@ public class ProductDetailsActivity extends AppCompatActivity {
 
         getProductDetails(productID);
 
-        addToCartButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        addToCartButton.setOnClickListener(view -> {
 
-                if (TextUtils.isEmpty(productQuantity.getText().toString())){
-                    Toast.makeText(ProductDetailsActivity.this,
-                            "Please enter your quantity", Toast.LENGTH_SHORT).show();
-                }
-                else{
-                    //addToCartList();
-
-                    if (!state.equals("shipped") && state.equals("order placed")){
-                        Toast.makeText(ProductDetailsActivity.this,
-                                "You can purchase more products once your order is shipped or confirmed", Toast.LENGTH_LONG).show();
-                    }
-                    else {
-                        addToCartList();
-                    }
-                }
-
-
+            if (TextUtils.isEmpty(productQuantity.getText().toString())){
+                Toast.makeText(ProductDetailsActivity.this,
+                        "Please enter your quantity", Toast.LENGTH_SHORT).show();
             }
+            else{
+                //addToCartList();
+
+                if (!state.equals("shipped") && state.equals("order placed")){
+                    Toast.makeText(ProductDetailsActivity.this,
+                            "You can purchase more products once your order is shipped or confirmed", Toast.LENGTH_LONG).show();
+                }
+                else {
+                    addToCartList();
+                }
+            }
+
+
         });
 
     }
@@ -107,27 +101,21 @@ public class ProductDetailsActivity extends AppCompatActivity {
         cartMap.put("time", saveCurrentTime);
         cartMap.put("quantity", productQuantity.getText().toString());
 
-        cartListRef.child("User View").child(mAuth.getCurrentUser().getUid())
+        cartListRef.child("User View").child(Objects.requireNonNull(mAuth.getCurrentUser()).getUid())
                 .child("Products").child(productID).updateChildren(cartMap)
-        .addOnCompleteListener(new OnCompleteListener<Void>() {
-            @Override
-            public void onComplete(@NonNull Task<Void> task) {
-                if (task.isSuccessful()){
-                    cartListRef.child("Admin View").child(mAuth.getCurrentUser().getUid())
-                            .child("Products").child(productID).updateChildren(cartMap)
-                    .addOnCompleteListener(new OnCompleteListener<Void>() {
-                        @Override
-                        public void onComplete(@NonNull Task<Void> task) {
-                            if (task.isSuccessful()){
-                                Toast.makeText(ProductDetailsActivity.this
-                                        , "Added to Cart List", Toast.LENGTH_SHORT).show();
-                                Intent intent = new Intent(ProductDetailsActivity.this,
-                                        UserHomeActivity.class);
-                                startActivity(intent);
-                            }
-                        }
-                    });
-                }
+        .addOnCompleteListener(task -> {
+            if (task.isSuccessful()){
+                cartListRef.child("Admin View").child(mAuth.getCurrentUser().getUid())
+                        .child("Products").child(productID).updateChildren(cartMap)
+                .addOnCompleteListener(task1 -> {
+                    if (task1.isSuccessful()){
+                        Toast.makeText(ProductDetailsActivity.this
+                                , "Added to Cart List", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(ProductDetailsActivity.this,
+                                UserHomeActivity.class);
+                        startActivity(intent);
+                    }
+                });
             }
         });
 
@@ -144,6 +132,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
 //                    Return the instance of Products class populated with data.
                     Products products = snapshot.getValue(Products.class);
 
+                    assert products != null;
                     productName.setText(products.getpName());
                     productDescription.setText(products.getDescription());
                     productPrice.setText(products.getPrice());
@@ -170,13 +159,13 @@ public class ProductDetailsActivity extends AppCompatActivity {
     private void checkOrderState() {
 
         DatabaseReference ordersRef = FirebaseDatabase.getInstance().getReference()
-                .child("Orders").child(mAuth.getCurrentUser().getUid());
+                .child("Orders").child(Objects.requireNonNull(mAuth.getCurrentUser()).getUid());
 
         ordersRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()){
-                    String shippingState = snapshot.child("state").getValue().toString();
+                    String shippingState = Objects.requireNonNull(snapshot.child("state").getValue()).toString();
 
                     if (shippingState.equals("shipped")){
                         state = "order shipped";

@@ -2,7 +2,7 @@ package com.johnsonnyamweya.businesspro.Models;
 
 public class SellersList {
 
-    public String sellerListName, sellerListPhone, sellerListEmail, sellerListAddress;
+    private String sellerListName, sellerListPhone, sellerListEmail, sellerListAddress;
 
     public SellersList() {
     }

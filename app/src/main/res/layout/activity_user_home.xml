@@ -9,12 +9,6 @@
     tools:openDrawer="start"
     tools:context=".Users.UserHomeActivity">
 
-    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-        android:id="@+id/user_refreshLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/appBar">
-
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -60,8 +54,5 @@
         app:itemTextColor="@color/white"
         android:fitsSystemWindows="true"
         app:menu="@menu/home_drawer" />
-
-    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
-
 
 </androidx.drawerlayout.widget.DrawerLayout>
