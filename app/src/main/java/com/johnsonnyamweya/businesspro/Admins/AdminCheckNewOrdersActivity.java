@@ -82,7 +82,7 @@ public class AdminCheckNewOrdersActivity extends AppCompatActivity {
                             };
 
                             AlertDialog.Builder builder = new AlertDialog.Builder(AdminCheckNewOrdersActivity.this);
-                            builder.setTitle("Do You want to ship this order?");
+                            builder.setTitle("Have you shipped this order?");
                             builder.setItems(options1, (dialogInterface, position1) -> {
 
                                 if (position1 == 0){

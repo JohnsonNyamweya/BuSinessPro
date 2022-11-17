@@ -23,6 +23,7 @@ import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.johnsonnyamweya.businesspro.CategoriesUnderUser.CategoryOfBabyProductsActivity;
 import com.johnsonnyamweya.businesspro.CategoriesUnderUser.CategoryOfComputingActivity;
 import com.johnsonnyamweya.businesspro.CategoriesUnderUser.CategoryOfElectronicsActivity;
 import com.johnsonnyamweya.businesspro.CategoriesUnderUser.CategoryOfFashionActivity;
@@ -38,7 +39,6 @@ import com.johnsonnyamweya.businesspro.MainActivity;
 import com.johnsonnyamweya.businesspro.Models.Products;
 import com.johnsonnyamweya.businesspro.Models.ProductsViewHolder;
 import com.johnsonnyamweya.businesspro.R;
-import com.johnsonnyamweya.businesspro.SellerAddCategories.BabyProductsCategoriesActivity;
 import com.squareup.picasso.Picasso;
 
 public class UserHomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
@@ -251,7 +251,7 @@ public class UserHomeActivity extends AppCompatActivity implements NavigationVie
         else if (id == R.id.nav_baby_products)
         {
             Intent babyProductsCategoryIntent =
-                    new Intent(UserHomeActivity.this, BabyProductsCategoriesActivity.class);
+                    new Intent(UserHomeActivity.this, CategoryOfBabyProductsActivity.class);
             startActivity(babyProductsCategoryIntent);
         }
 
